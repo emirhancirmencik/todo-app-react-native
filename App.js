@@ -5,7 +5,14 @@ import List from "./Components/List";
 
 export default function App() {
   const [list, setList] = useState([]);
-  
+
+  function addItem(item) {
+    setList((prev) => [...prev, item]);
+  }
+
+  function removeItem(item) {
+    setList(list.filter((i) => i.id !== item.id));
+  }
 
   return (
     <View style={styles.container}>
@@ -13,10 +20,10 @@ export default function App() {
         <Text>Yapilacaklar</Text>
         <Text>{list.length}</Text>
       </View>
-      <List />
+      <List data={list} removeItem={removeItem} />
 
       <View style={styles.input}>
-        <Input />
+        <Input addItem={addItem} />
       </View>
     </View>
   );
