@@ -17,12 +17,13 @@ export default StyleSheet.create({
     height: 45,
     padding: 3,
     paddingLeft: 14,
-    color: "white",
-    backgroundColor: "green",
+
+    backgroundColor: "darkseagreen",
+
     borderRadius: 50,
   },
   button: {
-    backgroundColor: "green",
+    backgroundColor: "darkseagreen",
     borderRadius: 50,
     height: 45,
     width: 45,

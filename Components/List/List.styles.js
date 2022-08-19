@@ -7,13 +7,17 @@ export default StyleSheet.create({
   },
   item: {
     marginBottom: 10,
-    backgroundColor: "yellow",
-    padding: 3,
-    borderRadius: 5,
+    padding: 5,
   },
   title: {
     fontSize: 24,
-    textDecorationLine: "line-through",
     fontWeight: "600",
+  },
+  titleCompleted: {
+    textDecorationLine: "line-through",
+  },
+  itemCompleted: {
+    backgroundColor: "darkseagreen",
+    borderRadius: 5,
   },
 });

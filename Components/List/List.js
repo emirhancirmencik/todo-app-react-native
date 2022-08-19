@@ -1,13 +1,29 @@
-import { FlatList, Pressable, Text, View, Vibration } from "react-native";
-import React from "react";
+import {
+  FlatList,
+  Pressable,
+  Text,
+  View,
+  Vibration,
+  Animated,
+} from "react-native";
+import React, { useRef } from "react";
 import styles from "./List.styles";
 
-function List({ data, removeItem }) {
+function List({ data, removeItem, completeTodo }) {
   const renderItem = ({ item }) => {
     return (
-      <Pressable onLongPress={() => removeItem(item)}>
-        <View style={styles.item}>
-          <Text style={styles.title}>{item.text}</Text>
+      <Pressable
+        onLongPress={() => {
+          removeItem(item);
+        }}
+        onPress={() => {
+          completeTodo(item);
+        }}
+      >
+        <View style={[styles.item, item.completed && styles.itemCompleted]}>
+          <Text style={[styles.title, item.completed && styles.titleCompleted]}>
+            {item.text}
+          </Text>
         </View>
       </Pressable>
     );

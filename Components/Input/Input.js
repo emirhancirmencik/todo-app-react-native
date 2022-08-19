@@ -8,7 +8,7 @@ const nanoid = customAlphabet("abcdefghijklmnopqrstuvwxyz0123456789", 10);
 
 function Input(props) {
   const [input, setInput] = useState("");
-  const inputRef = useRef(0);
+  const inputRef = useRef(null);
 
   function handleChange(e) {
     setInput(e);
@@ -18,11 +18,12 @@ function Input(props) {
     const cleanInput = input.replace(/\s/g, "");
     if (cleanInput.length > 0)
       props.addItem({
-        text: cleanInput,
+        text: input,
         completed: false,
         id: nanoid(),
       });
     setInput("");
+    inputRef.current.blur();
   }
 
   return (
